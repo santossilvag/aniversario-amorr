@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Feliz Aniversário, Meu Amor ❤️</title>
+    <title>Feliz Aniversário ❤️</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -17,118 +16,108 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #fff4f6, #ffdfe7);
+            background: linear-gradient(135deg, #fff3f6, #ffdce6);
             font-family: Georgia, "Times New Roman", serif;
             color: #572431;
-            overflow-x: hidden;
         }
-
-        /* CORAÇÕES DE FUNDO */
-
-        .heart-bg {
-            position: fixed;
-            color: #f3a4b5;
-            font-size: 20px;
-            opacity: 0.6;
-            z-index: -1;
-        }
-
-        .h1 {
-            top: 8%;
-            left: 8%;
-        }
-
-        .h2 {
-            top: 18%;
-            right: 10%;
-        }
-
-        .h3 {
-            bottom: 15%;
-            left: 12%;
-        }
-
-        .h4 {
-            bottom: 20%;
-            right: 8%;
-        }
-
-        /* CONTEÚDO */
 
         .pagina {
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
-            padding: 50px 30px;
+            align-items: center;
+            padding: 30px 15px;
         }
 
         .conteudo {
-            width: 1200px;
-            max-width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        /* LADO ESQUERDO */
-
-        .lado-esquerdo {
+            width: 100%;
+            max-width: 900px;
             text-align: center;
         }
 
-        h1 {
-            font-size: 50px;
+        /* TÍTULO */
+
+        .titulo h1 {
+            font-size: 42px;
             color: #8f2944;
-            margin-bottom: 5px;
         }
 
-        .meu-amor {
-            font-size: 65px;
-            color: #e24d70;
+        .titulo h2 {
             font-family: "Brush Script MT", cursive;
-            margin-bottom: 15px;
+            font-size: 60px;
+            font-weight: normal;
+            color: #df4d70;
+            margin-top: 5px;
         }
 
-        .subtitulo {
-            font-size: 19px;
-            margin-bottom: 45px;
+        .titulo p {
+            font-size: 17px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* TEXTO GRANDE */
+
+        .texto-grande {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            background: rgba(255, 250, 242, 0.8);
+            padding: 25px 30px;
+            border-radius: 12px;
+            border: 1px solid #efd0d7;
+            box-shadow: 0 8px 25px rgba(80, 30, 45, 0.10);
+            text-align: left;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .texto-grande p {
+            margin-bottom: 18px;
+        }
+
+        .texto-grande p:last-child {
+            margin-bottom: 0;
         }
 
         /* ENVELOPE */
 
-        .envelope {
-            position: relative;
-            width: 470px;
-            height: 300px;
-            max-width: 100%;
-            margin: auto;
-            cursor: pointer;
+        .envelope-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .corpo-envelope {
+        .envelope {
+            width: 400px;
+            height: 255px;
+            max-width: 90vw;
+            position: relative;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+
+        .envelope-body {
             position: absolute;
             inset: 0;
-            background: #f48da7;
-            border-radius: 5px;
-            box-shadow: 0 18px 35px rgba(100, 30, 50, 0.20);
+            background: #f28da7;
+            border-radius: 6px;
+            box-shadow: 0 15px 30px rgba(80, 30, 45, 0.20);
         }
 
-        /* FRENTE DO ENVELOPE */
+        /* Frente do envelope */
 
-        .corpo-envelope::before {
+        .envelope-body::before {
             content: "";
             position: absolute;
             bottom: 0;
             left: 0;
 
-            border-left: 235px solid transparent;
-            border-right: 235px solid transparent;
-            border-bottom: 165px solid #ed7995;
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-bottom: 140px solid #e97894;
         }
 
-        /* ABA */
+        /* Aba */
 
         .aba {
             position: absolute;
@@ -138,9 +127,9 @@
             width: 0;
             height: 0;
 
-            border-left: 235px solid transparent;
-            border-right: 235px solid transparent;
-            border-top: 165px solid #f9a3b7;
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-top: 140px solid #f8a2b7;
 
             transform-origin: top center;
             transition: transform 0.7s ease;
@@ -148,18 +137,17 @@
             z-index: 5;
         }
 
-        /* SELO */
+        /* Selo */
 
         .selo {
             position: absolute;
-
-            top: 130px;
+            top: 105px;
             left: 50%;
 
             transform: translateX(-50%);
 
-            width: 65px;
-            height: 65px;
+            width: 62px;
+            height: 62px;
 
             background: #d9365a;
             border-radius: 50%;
@@ -169,16 +157,14 @@
             justify-content: center;
 
             color: white;
-            font-size: 32px;
-
-            box-shadow: 0 5px 15px rgba(100, 20, 40, 0.3);
+            font-size: 30px;
 
             z-index: 10;
 
-            transition: 0.5s;
+            transition: opacity 0.4s ease;
         }
 
-        /* ABRINDO */
+        /* Envelope aberto */
 
         .envelope.aberto .aba {
             transform: rotateX(180deg);
@@ -186,47 +172,43 @@
 
         .envelope.aberto .selo {
             opacity: 0;
-            transform: translateX(-50%) scale(0.5);
         }
 
         .clique {
-            margin-top: 30px;
-            font-size: 18px;
+            margin-top: 22px;
+            font-size: 17px;
             color: #8f2944;
         }
 
         /* CARTA */
 
         .carta {
+            display: none;
+
+            max-width: 700px;
+            margin: 0 auto;
+
             background: #fffaf2;
-            border: 1px solid #efd0d7;
+
+            padding: 38px 45px;
+
             border-radius: 12px;
 
-            padding: 40px;
+            border: 1px solid #efd0d7;
 
-            box-shadow: 0 18px 40px rgba(100, 30, 50, 0.15);
+            box-shadow: 0 15px 35px rgba(80, 30, 45, 0.15);
 
-            opacity: 0;
-            visibility: hidden;
-
-            transform: translateX(30px);
-
-            transition:
-                opacity 0.6s ease,
-                transform 0.6s ease,
-                visibility 0.6s;
+            text-align: left;
         }
 
-        .carta.mostrar {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
+        .carta.visivel {
+            display: block;
         }
 
-        .titulo-carta {
+        .carta-titulo {
             text-align: center;
-            color: #c93658;
-            font-size: 30px;
+            color: #d9365a;
+            font-size: 29px;
             margin-bottom: 25px;
         }
 
@@ -234,157 +216,192 @@
             text-align: center;
             color: #e34f70;
             font-size: 28px;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
 
-        .texto {
+        .texto-carta {
             font-size: 17px;
-            line-height: 1.7;
+            line-height: 1.75;
             color: #43242c;
         }
 
-        .texto p {
-            margin-bottom: 20px;
+        .texto-carta p {
+            margin-bottom: 21px;
         }
 
         .final {
             text-align: center;
             color: #d9365a;
-            font-size: 28px;
+            font-size: 26px;
             font-weight: bold;
             margin-top: 25px;
         }
 
         .fechar {
             display: block;
-            margin: 30px auto 0;
+            margin: 28px auto 0;
 
             border: none;
             background: #d9365a;
             color: white;
 
             padding: 11px 25px;
+
             border-radius: 25px;
 
             font-size: 15px;
             cursor: pointer;
         }
 
-        .fechar:hover {
-            background: #b92b4b;
-        }
-
-
         /* CELULAR */
 
-        @media (max-width: 850px) {
+        @media (max-width: 600px) {
 
             .pagina {
-                padding: 35px 18px;
+                padding: 25px 12px;
+                align-items: flex-start;
             }
 
-            .conteudo {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .titulo h1 {
+                font-size: 32px;
             }
 
-            h1 {
-                font-size: 38px;
+            .titulo h2 {
+                font-size: 48px;
             }
 
-            .meu-amor {
-                font-size: 52px;
+            .titulo p {
+                font-size: 16px;
             }
 
-            .subtitulo {
-                font-size: 17px;
-                margin-bottom: 30px;
+            .texto-grande {
+                font-size: 16px;
+                padding: 22px;
             }
 
             .envelope {
                 width: 330px;
-                height: 215px;
+                height: 210px;
             }
 
-            .corpo-envelope::before {
+            .envelope-body::before {
                 border-left-width: 165px;
                 border-right-width: 165px;
-                border-bottom-width: 120px;
+                border-bottom-width: 115px;
             }
 
             .aba {
                 border-left-width: 165px;
                 border-right-width: 165px;
-                border-top-width: 120px;
+                border-top-width: 115px;
             }
 
             .selo {
-                width: 52px;
-                height: 52px;
-                font-size: 25px;
-                top: 92px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                top: 85px;
             }
 
             .carta {
                 padding: 28px 22px;
-                transform: translateY(25px);
             }
 
-            .carta.mostrar {
-                transform: translateY(0);
+            .carta-titulo {
+                font-size: 24px;
             }
 
-            .titulo-carta {
-                font-size: 25px;
-            }
-
-            .texto {
+            .texto-carta {
                 font-size: 16px;
-                line-height: 1.65;
+                line-height: 1.7;
             }
 
             .final {
-                font-size: 24px;
+                font-size: 23px;
             }
         }
-
     </style>
 </head>
 
-
 <body>
-
-    <!-- CORAÇÕES DISCRETOS -->
-
-    <div class="heart-bg h1">♥</div>
-    <div class="heart-bg h2">♡</div>
-    <div class="heart-bg h3">♥</div>
-    <div class="heart-bg h4">♡</div>
-
 
     <main class="pagina">
 
         <div class="conteudo">
 
+            <!-- TÍTULO -->
 
-            <!-- LADO ESQUERDO -->
+            <div class="titulo">
 
-            <section class="lado-esquerdo">
+                <h1>Feliz Aniversário,</h1>
 
-                <h1>
-                    Feliz Aniversário,
-                </h1>
+                <h2>Meu Amor ❤️</h2>
 
-                <div class="meu-amor">
-                    Meu Amor ❤️
-                </div>
-
-                <p class="subtitulo">
-                    Tenho uma carta especial para você. ❤️
+                <p>
+                    Tenho uma carta especial para você.
                 </p>
 
+            </div>
 
-                <!-- ENVELOPE -->
+
+            <!--
+                TEXTO GRANDE
+                ELE APARECE PRIMEIRO
+            -->
+
+            <div class="texto-grande" id="textoGrande">
+
+                <p>
+                    Eu não sei como agradecer por todos esses meses, por ter uma pessoa tão incrível do meu lado, que me surpreende cada vez mais. A cada momento que eu passo com você eu me apaixono cada vez mais, a cada vez que eu te vejo eu me apaixono cada vez mais, a cada vez que eu falo com você, eu me apaixono cada vez mais.
+                </p>
+
+                <p>
+                    Você é a mulher perfeita que eu nunca pude sonhar que poderia ter, que me trata igual um bebê, que sempre está do meu lado e me ajudando sempre, que está disposta a fazer tudo por mim, nunca brigou comigo nenhuma vez, sempre me deixa animado quando eu estou triste ou em um dia difícil, Na verdade, não tem dia difícil quando eu estou com você, porque é impossível você ilumina meu dia, e ilumina minha vida como NINGUÉM nunca iluminou antes. Eu não vivo sem você meu amor, não vivo Sem vc meu mundo desaba, e se torna apenas cinzas, um completo vazio , Mas quando estou contigo, tudo fica melhor, TUDO. Meus momentos felizes, só existem com você. Quando eu vou na rua, jogo, ou saio pra algum lugar, eu sempre fico triste, porque eu não tenho você comigo e lembro de todos os nossos problemas que nós passamos, e que estamos passando, cada dia que passa, O dia mais importante da sua vida, o SEU DIA.
+                </p>
+
+                <p>
+                    sua felicidade me torna feliz Me deixa com um sorriso no rosto E te ver triste me deixa acabado Com um vazio enorme, porque eu quero ver minha princesa feliz né, com esse sorriso lindo de uma mulher muito especial para mim.
+                </p>
+
+                <p>
+                    Eu tenho muita sorte de ter uma garota tão especial comigo, eu realmente tenho muita sorte, uma garota, que me dá um valor além dos meus limites, que me apoia tanto, E faz de mim o homem mais feliz do universo.
+                </p>
+
+                <p>
+                    Eu sou muito grato por ter você a mulher que mudou minha vida por completo, que fez desse ano, ser o melhor da minha vida.
+                </p>
+
+                <p>
+                    Eu não sei como consegui arranjar uma mulher tão perfeita.
+                </p>
+
+                <p>
+                    Eu lembro dos nossos dias como se fossem ontem, nossos momentos fofos.
+                </p>
+
+                <p>
+                    Lembro quando nois ficamos de mãos dadas pela primeira vez meu mundo paralisou, minha cabeça explodiu, meu corpo tremeu mais que um terremoto, tive dúvidas, e medo. Um conjunto de emoções, todas de uma vez.
+                </p>
+
+                <p>
+                    antes de eu te pedir em namoro fiquei pensando se tudo isso daria certo, se tudo ficaria bem, eu tava cheio de dúvidas, mas mesmo assim eu dei um grande passo e tomei a decisão certa, comecei a conversar com você até agente se aproximar mais e começarmos a namorar.
+                </p>
+
+                <p>
+                    Giovana eu quero ter uma vida com você, ter filhos com você, nossa própria casa. Uma família. Eu quero você comigo pelo resto da minha vida, quero viver pra sempre do seu lado, e nunca mais sair.
+                </p>
+
+                <p>
+                    Então, eu escolho VOCÊ, como a mulher que eu vou passar o resto da minha vida do seu lado, sempre te apoiar independente de tudo, a mulher que eu vou me casar. EU TE AMO MEU AMOR
+                    FELIZ ANIVERSÁRIO ❤️
+                </p>
+
+            </div>
+
+
+            <!-- ENVELOPE -->
+
+            <div class="envelope-area" id="envelopeArea">
 
                 <div
                     class="envelope"
@@ -392,7 +409,7 @@
                     onclick="abrirCarta()"
                 >
 
-                    <div class="corpo-envelope"></div>
+                    <div class="envelope-body"></div>
 
                     <div class="aba"></div>
 
@@ -402,75 +419,42 @@
 
                 </div>
 
-
-                <p class="clique" id="clique">
-                    💌 Clique na carta para abrir
+                <p class="clique">
+                    💌 Clique no envelope para abrir
                 </p>
 
-            </section>
+            </div>
 
 
+            <!-- CARTA ESCONDIDA -->
 
-            <!-- CARTA -->
-
-            <section
-                class="carta"
-                id="carta"
-            >
+            <div class="carta" id="carta">
 
                 <div class="coracao">
                     ♡
                 </div>
 
-                <h2 class="titulo-carta">
-                    Para você, meu amor ❤️
+                <h2 class="carta-titulo">
+                    Feliz aniversário, meu amor! ❤️
                 </h2>
 
 
-                <div class="texto">
+                <div class="texto-carta">
 
                     <p>
-                        Eu não sei como agradecer por todos esses meses, por ter uma pessoa tão incrível do meu lado, que me surpreende cada vez mais. A cada momento que eu passo com você eu me apaixono cada vez mais, a cada vez que eu te vejo eu me apaixono cada vez mais, a cada vez que eu falo com você, eu me apaixono cada vez mais.
+                        Feliz aniversário, meu amor! Hoje meu coração transborda de gratidão por celebrar a existência da pessoa mais incrível que eu já conheci em toda a minha vida. Neste dia tão especial, quero que você saiba o quanto você significa para mim e como sou grato a Deus por ter você em minha vida.
                     </p>
 
                     <p>
-                        Você é a mulher perfeita que eu nunca pude sonhar que poderia ter, que me trata igual um bebê, que sempre está do meu lado e me ajudando sempre, que está disposta a fazer tudo por mim, nunca brigou comigo nenhuma vez, sempre me deixa animado quando eu estou triste ou em um dia difícil, Na verdade, não tem dia difícil quando eu estou com você, porque é impossível você ilumina meu dia, e ilumina minha vida como NINGUÉM nunca iluminou antes. Eu não vivo sem você meu amor, não vivo Sem vc meu mundo desaba, e se torna apenas cinzas, um completo vazio , Mas quando estou contigo, tudo fica melhor, TUDO. Meus momentos felizes, só existem com você. Quando eu vou na rua, jogo, ou saio pra algum lugar, eu sempre fico triste, porque eu não tenho você comigo e lembro de todos os nossos problemas que nós passamos, e que estamos passando, cada dia que passa, O dia mais importante da sua vida, o SEU DIA.
+                        Você é meu porto seguro, a pessoa que transforma meus dias e dá sentido a eles. Você é mais do que eu um dia sonhei obrigado por fazer tudo por mim, alguém que estivesse comigo em todos os momentos, me entendesse, me fizesse sorrir pelos motivos mais bobos, me respeitasse, fizesse questão de mostrar para todos que é completamente apaixonada por mim e, acima de tudo, me amasse independente de qualquer coisa.
                     </p>
 
                     <p>
-                        sua felicidade me torna feliz Me deixa com um sorriso no rosto E te ver triste me deixa acabado Com um vazio enorme, porque eu quero ver minha princesa feliz né, com esse sorriso lindo de uma mulher muito especial para mim.
+                        Desejo que todos os seus sonhos se realizem e que a vida te retribua em dobro todo o amor e a luz que você espalha. Quero estar ao seu lado em cada passo, segurando sua mão, rindo com você, enxugando suas lágrimas quando for preciso e, acima de tudo, amando você com toda a minha alma.
                     </p>
 
                     <p>
-                        Eu tenho muita sorte de ter uma garota tão especial comigo, eu realmente tenho muita sorte, uma garota, que me dá um valor além dos meus limites, que me apoia tanto, E faz de mim o homem mais feliz do universo.
-                    </p>
-
-                    <p>
-                        Eu sou muito grato por ter você a mulher que mudou minha vida por completo, que fez desse ano, ser o melhor da minha vida.
-                    </p>
-
-                    <p>
-                        Eu não sei como consegui arranjar uma mulher tão perfeita.
-                    </p>
-
-                    <p>
-                        Eu lembro dos nossos dias como se fossem ontem, nossos momentos fofos.
-                    </p>
-
-                    <p>
-                        Lembro quando nois ficamos de mãos dadas pela primeira vez meu mundo paralisou, minha cabeça explodiu, meu corpo tremeu mais que um terremoto, tive dúvidas, e medo. Um conjunto de emoções, todas de uma vez.
-                    </p>
-
-                    <p>
-                        antes de eu te pedir em namoro fiquei pensando se tudo isso daria certo, se tudo ficaria bem, eu tava cheio de dúvidas, mas mesmo assim eu dei um grande passo e tomei a decisão certa, comecei a conversar com você até agente se aproximar mais e começarmos a namorar.
-                    </p>
-
-                    <p>
-                        Giovana eu quero ter uma vida com você, ter filhos com você, nossa própria casa. Uma família. Eu quero você comigo pelo resto da minha vida, quero viver pra sempre do seu lado, e nunca mais sair.
-                    </p>
-
-                    <p>
-                        Então, eu escolho VOCÊ, como a mulher que eu vou passar o resto da minha vida do seu lado, sempre te apoiar independente de tudo, a mulher que eu vou me casar. EU TE AMO MEU AMOR
+                        Que a gente continue escrevendo essa história linda juntos, lado a lado, porque meu maior desejo é te ver feliz e realizado. ❤️
                     </p>
 
                 </div>
@@ -485,20 +469,25 @@
                     class="fechar"
                     onclick="fecharCarta()"
                 >
-                    Fechar carta ×
+                    Fechar carta
                 </button>
 
-            </section>
+            </div>
 
         </div>
 
     </main>
 
 
-
     <script>
 
         function abrirCarta() {
+
+            const textoGrande =
+                document.getElementById("textoGrande");
+
+            const envelopeArea =
+                document.getElementById("envelopeArea");
 
             const envelope =
                 document.getElementById("envelope");
@@ -506,46 +495,642 @@
             const carta =
                 document.getElementById("carta");
 
-            const clique =
-                document.getElementById("clique");
 
+            /*
+                Primeiro o envelope abre
+            */
 
             envelope.classList.add("aberto");
 
-            clique.style.opacity = "0";
 
+            /*
+                Depois de abrir,
+                o texto grande e o envelope desaparecem
+            */
 
             setTimeout(function() {
 
-                carta.classList.add("mostrar");
+                textoGrande.style.display = "none";
 
-            }, 500);
+                envelopeArea.style.display = "none";
+
+                /*
+                    E a carta pequena aparece
+                */
+
+                carta.classList.add("visivel");
+
+            }, 700);
 
         }
 
 
         function fecharCarta() {
 
+            const textoGrande =
+                document.getElementById("textoGrande");
+
+            const envelopeArea =
+                document.getElementById("envelopeArea");
+
             const envelope =
                 document.getElementById("envelope");
 
             const carta =
                 document.getElementById("carta");
 
-            const clique =
-                document.getElementById("clique");
+
+            /*
+                Esconde a carta
+            */
+
+            carta.classList.remove("visivel");
 
 
-            carta.classList.remove("mostrar");
+            /*
+                Volta para o começo
+            */
 
+            textoGrande.style.display = "block";
+
+            envelopeArea.style.display = "flex";
+
+            envelope.classList.remove("aberto");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Feliz Aniversário ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fff3f6, #ffdce6);
+            font-family: Georgia, "Times New Roman", serif;
+            color: #572431;
+        }
+
+        .pagina {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        .conteudo {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        /* TÍTULO */
+
+        .titulo h1 {
+            font-size: 42px;
+            color: #8f2944;
+        }
+
+        .titulo h2 {
+            font-family: "Brush Script MT", cursive;
+            font-size: 60px;
+            font-weight: normal;
+            color: #df4d70;
+            margin-top: 5px;
+        }
+
+        .titulo p {
+            font-size: 17px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* TEXTO GRANDE */
+
+        .texto-grande {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            background: rgba(255, 250, 242, 0.8);
+            padding: 25px 30px;
+            border-radius: 12px;
+            border: 1px solid #efd0d7;
+            box-shadow: 0 8px 25px rgba(80, 30, 45, 0.10);
+            text-align: left;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .texto-grande p {
+            margin-bottom: 18px;
+        }
+
+        .texto-grande p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ENVELOPE */
+
+        .envelope-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .envelope {
+            width: 400px;
+            height: 255px;
+            max-width: 90vw;
+            position: relative;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+
+        .envelope-body {
+            position: absolute;
+            inset: 0;
+            background: #f28da7;
+            border-radius: 6px;
+            box-shadow: 0 15px 30px rgba(80, 30, 45, 0.20);
+        }
+
+        /* Frente do envelope */
+
+        .envelope-body::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-bottom: 140px solid #e97894;
+        }
+
+        /* Aba */
+
+        .aba {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-top: 140px solid #f8a2b7;
+
+            transform-origin: top center;
+            transition: transform 0.7s ease;
+
+            z-index: 5;
+        }
+
+        /* Selo */
+
+        .selo {
+            position: absolute;
+            top: 105px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 62px;
+            height: 62px;
+
+            background: #d9365a;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+            font-size: 30px;
+
+            z-index: 10;
+
+            transition: opacity 0.4s ease;
+        }
+
+        /* Envelope aberto */
+
+        .envelope.aberto .aba {
+            transform: rotateX(180deg);
+        }
+
+        .envelope.aberto .selo {
+            opacity: 0;
+        }
+
+        .clique {
+            margin-top: 22px;
+            font-size: 17px;
+            color: #8f2944;
+        }
+
+        /* CARTA */
+
+        .carta {
+            display: none;
+
+            max-width: 700px;
+            margin: 0 auto;
+
+            background: #fffaf2;
+
+            padding: 38px 45px;
+
+            border-radius: 12px;
+
+            border: 1px solid #efd0d7;
+
+            box-shadow: 0 15px 35px rgba(80, 30, 45, 0.15);
+
+            text-align: left;
+        }
+
+        .carta.visivel {
+            display: block;
+        }
+
+        .carta-titulo {
+            text-align: center;
+            color: #d9365a;
+            font-size: 29px;
+            margin-bottom: 25px;
+        }
+
+        .coracao {
+            text-align: center;
+            color: #e34f70;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .texto-carta {
+            font-size: 17px;
+            line-height: 1.75;
+            color: #43242c;
+        }
+
+        .texto-carta p {
+            margin-bottom: 21px;
+        }
+
+        .final {
+            text-align: center;
+            color: #d9365a;
+            font-size: 26px;
+            font-weight: bold;
+            margin-top: 25px;
+        }
+
+        .fechar {
+            display: block;
+            margin: 28px auto 0;
+
+            border: none;
+            background: #d9365a;
+            color: white;
+
+            padding: 11px 25px;
+
+            border-radius: 25px;
+
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 600px) {
+
+            .pagina {
+                padding: 25px 12px;
+                align-items: flex-start;
+            }
+
+            .titulo h1 {
+                font-size: 32px;
+            }
+
+            .titulo h2 {
+                font-size: 48px;
+            }
+
+            .titulo p {
+                font-size: 16px;
+            }
+
+            .texto-grande {
+                font-size: 16px;
+                padding: 22px;
+            }
+
+            .envelope {
+                width: 330px;
+                height: 210px;
+            }
+
+            .envelope-body::before {
+                border-left-width: 165px;
+                border-right-width: 165px;
+                border-bottom-width: 115px;
+            }
+
+            .aba {
+                border-left-width: 165px;
+                border-right-width: 165px;
+                border-top-width: 115px;
+            }
+
+            .selo {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                top: 85px;
+            }
+
+            .carta {
+                padding: 28px 22px;
+            }
+
+            .carta-titulo {
+                font-size: 24px;
+            }
+
+            .texto-carta {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            .final {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="pagina">
+
+        <div class="conteudo">
+
+            <!-- TÍTULO -->
+
+            <div class="titulo">
+
+                <h1>Feliz Aniversário,</h1>
+
+                <h2>Meu Amor ❤️</h2>
+
+                <p>
+                    Tenho uma carta especial para você.
+                </p>
+
+            </div>
+
+
+            <!--
+                TEXTO GRANDE
+                ELE APARECE PRIMEIRO
+            -->
+
+            <div class="texto-grande" id="textoGrande">
+
+                <p>
+                    Eu não sei como agradecer por todos esses meses, por ter uma pessoa tão incrível do meu lado, que me surpreende cada vez mais. A cada momento que eu passo com você eu me apaixono cada vez mais, a cada vez que eu te vejo eu me apaixono cada vez mais, a cada vez que eu falo com você, eu me apaixono cada vez mais.
+                </p>
+
+                <p>
+                    Você é a mulher perfeita que eu nunca pude sonhar que poderia ter, que me trata igual um bebê, que sempre está do meu lado e me ajudando sempre, que está disposta a fazer tudo por mim, nunca brigou comigo nenhuma vez, sempre me deixa animado quando eu estou triste ou em um dia difícil, Na verdade, não tem dia difícil quando eu estou com você, porque é impossível você ilumina meu dia, e ilumina minha vida como NINGUÉM nunca iluminou antes. Eu não vivo sem você meu amor, não vivo Sem vc meu mundo desaba, e se torna apenas cinzas, um completo vazio , Mas quando estou contigo, tudo fica melhor, TUDO. Meus momentos felizes, só existem com você. Quando eu vou na rua, jogo, ou saio pra algum lugar, eu sempre fico triste, porque eu não tenho você comigo e lembro de todos os nossos problemas que nós passamos, e que estamos passando, cada dia que passa, O dia mais importante da sua vida, o SEU DIA.
+                </p>
+
+                <p>
+                    sua felicidade me torna feliz Me deixa com um sorriso no rosto E te ver triste me deixa acabado Com um vazio enorme, porque eu quero ver minha princesa feliz né, com esse sorriso lindo de uma mulher muito especial para mim.
+                </p>
+
+                <p>
+                    Eu tenho muita sorte de ter uma garota tão especial comigo, eu realmente tenho muita sorte, uma garota, que me dá um valor além dos meus limites, que me apoia tanto, E faz de mim o homem mais feliz do universo.
+                </p>
+
+                <p>
+                    Eu sou muito grato por ter você a mulher que mudou minha vida por completo, que fez desse ano, ser o melhor da minha vida.
+                </p>
+
+                <p>
+                    Eu não sei como consegui arranjar uma mulher tão perfeita.
+                </p>
+
+                <p>
+                    Eu lembro dos nossos dias como se fossem ontem, nossos momentos fofos.
+                </p>
+
+                <p>
+                    Lembro quando nois ficamos de mãos dadas pela primeira vez meu mundo paralisou, minha cabeça explodiu, meu corpo tremeu mais que um terremoto, tive dúvidas, e medo. Um conjunto de emoções, todas de uma vez.
+                </p>
+
+                <p>
+                    antes de eu te pedir em namoro fiquei pensando se tudo isso daria certo, se tudo ficaria bem, eu tava cheio de dúvidas, mas mesmo assim eu dei um grande passo e tomei a decisão certa, comecei a conversar com você até agente se aproximar mais e começarmos a namorar.
+                </p>
+
+                <p>
+                    Giovana eu quero ter uma vida com você, ter filhos com você, nossa própria casa. Uma família. Eu quero você comigo pelo resto da minha vida, quero viver pra sempre do seu lado, e nunca mais sair.
+                </p>
+
+                <p>
+                    Então, eu escolho VOCÊ, como a mulher que eu vou passar o resto da minha vida do seu lado, sempre te apoiar independente de tudo, a mulher que eu vou me casar. EU TE AMO MEU AMOR
+                    FELIZ ANIVERSÁRIO ❤️
+                </p>
+
+            </div>
+
+
+            <!-- ENVELOPE -->
+
+            <div class="envelope-area" id="envelopeArea">
+
+                <div
+                    class="envelope"
+                    id="envelope"
+                    onclick="abrirCarta()"
+                >
+
+                    <div class="envelope-body"></div>
+
+                    <div class="aba"></div>
+
+                    <div class="selo">
+                        ❤️
+                    </div>
+
+                </div>
+
+                <p class="clique">
+                    💌 Clique no envelope para abrir
+                </p>
+
+            </div>
+
+
+            <!-- CARTA ESCONDIDA -->
+
+            <div class="carta" id="carta">
+
+                <div class="coracao">
+                    ♡
+                </div>
+
+                <h2 class="carta-titulo">
+                    Feliz aniversário, meu amor! ❤️
+                </h2>
+
+
+                <div class="texto-carta">
+
+                    <p>
+                        Feliz aniversário, meu amor! Hoje meu coração transborda de gratidão por celebrar a existência da pessoa mais incrível que eu já conheci em toda a minha vida. Neste dia tão especial, quero que você saiba o quanto você significa para mim e como sou grato a Deus por ter você em minha vida.
+                    </p>
+
+                    <p>
+                        Você é meu porto seguro, a pessoa que transforma meus dias e dá sentido a eles. Você é mais do que eu um dia sonhei obrigado por fazer tudo por mim, alguém que estivesse comigo em todos os momentos, me entendesse, me fizesse sorrir pelos motivos mais bobos, me respeitasse, fizesse questão de mostrar para todos que é completamente apaixonada por mim e, acima de tudo, me amasse independente de qualquer coisa.
+                    </p>
+
+                    <p>
+                        Desejo que todos os seus sonhos se realizem e que a vida te retribua em dobro todo o amor e a luz que você espalha. Quero estar ao seu lado em cada passo, segurando sua mão, rindo com você, enxugando suas lágrimas quando for preciso e, acima de tudo, amando você com toda a minha alma.
+                    </p>
+
+                    <p>
+                        Que a gente continue escrevendo essa história linda juntos, lado a lado, porque meu maior desejo é te ver feliz e realizado. ❤️
+                    </p>
+
+                </div>
+
+
+                <div class="final">
+                    FELIZ ANIVERSÁRIO ❤️
+                </div>
+
+
+                <button
+                    class="fechar"
+                    onclick="fecharCarta()"
+                >
+                    Fechar carta
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        function abrirCarta() {
+
+            const textoGrande =
+                document.getElementById("textoGrande");
+
+            const envelopeArea =
+                document.getElementById("envelopeArea");
+
+            const envelope =
+                document.getElementById("envelope");
+
+            const carta =
+                document.getElementById("carta");
+
+
+            /*
+                Primeiro o envelope abre
+            */
+
+            envelope.classList.add("aberto");
+
+
+            /*
+                Depois de abrir,
+                o texto grande e o envelope desaparecem
+            */
 
             setTimeout(function() {
 
-                envelope.classList.remove("aberto");
+                textoGrande.style.display = "none";
 
-                clique.style.opacity = "1";
+                envelopeArea.style.display = "none";
 
-            }, 500);
+                /*
+                    E a carta pequena aparece
+                */
+
+                carta.classList.add("visivel");
+
+            }, 700);
+
+        }
+
+
+        function fecharCarta() {
+
+            const textoGrande =
+                document.getElementById("textoGrande");
+
+            const envelopeArea =
+                document.getElementById("envelopeArea");
+
+            const envelope =
+                document.getElementById("envelope");
+
+            const carta =
+                document.getElementById("carta");
+
+
+            /*
+                Esconde a carta
+            */
+
+            carta.classList.remove("visivel");
+
+
+            /*
+                Volta para o começo
+            */
+
+            textoGrande.style.display = "block";
+
+            envelopeArea.style.display = "flex";
+
+            envelope.classList.remove("aberto");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
         }
 
