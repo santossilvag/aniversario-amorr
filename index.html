@@ -16,55 +16,41 @@
 
         body {
             min-height: 100vh;
-            background:
-                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.8) 0 3px, transparent 4px),
-                radial-gradient(circle at 90% 30%, rgba(255, 255, 255, 0.7) 0 3px, transparent 4px),
-                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.7) 0 2px, transparent 3px),
-                linear-gradient(135deg, #fff6f8, #ffdce7);
-
+            background: #fff0f4;
             font-family: Georgia, "Times New Roman", serif;
             color: #572431;
+            position: relative;
         }
 
-        /* DECORAÇÕES */
+        /* DECORAÇÃO DO FUNDO */
 
-        .decoracao {
+        body::before {
+            content: "♡  ✦  ♡";
             position: fixed;
-            pointer-events: none;
-            color: rgba(217, 54, 90, 0.18);
-            font-size: 28px;
+            top: 25px;
+            left: 30px;
+            color: #e7a1b2;
+            font-size: 24px;
+            letter-spacing: 8px;
             z-index: 0;
         }
 
-        .decoracao.um {
-            top: 8%;
-            left: 6%;
+        body::after {
+            content: "♡  ✦  ♡";
+            position: fixed;
+            bottom: 25px;
+            right: 30px;
+            color: #e7a1b2;
+            font-size: 24px;
+            letter-spacing: 8px;
+            z-index: 0;
         }
-
-        .decoracao.dois {
-            top: 20%;
-            right: 7%;
-            font-size: 22px;
-        }
-
-        .decoracao.tres {
-            bottom: 12%;
-            left: 8%;
-            font-size: 20px;
-        }
-
-        .decoracao.quatro {
-            bottom: 20%;
-            right: 8%;
-        }
-
-        /* PÁGINA */
 
         .pagina {
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            padding: 40px 15px;
+            padding: 35px 15px;
             position: relative;
             z-index: 1;
         }
@@ -78,99 +64,93 @@
         /* TÍTULO */
 
         .titulo {
-            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.45);
+            border: 1px solid #edc2cd;
+            border-radius: 18px;
+            padding: 22px 15px;
+            margin-bottom: 25px;
         }
 
         .titulo h1 {
             font-size: 42px;
             color: #8f2944;
-            letter-spacing: 1px;
         }
 
         .titulo h2 {
             font-family: "Brush Script MT", cursive;
-            font-size: 62px;
+            font-size: 60px;
             font-weight: normal;
             color: #df4d70;
             margin-top: 5px;
-            text-shadow: 1px 2px 3px rgba(143, 41, 68, 0.15);
         }
 
         .titulo p {
             font-size: 17px;
-            margin-top: 12px;
-            color: #7a3b49;
+            margin-top: 10px;
+            color: #74404d;
         }
 
         /* LINHA DECORATIVA */
 
         .linha {
-            width: 90px;
-            height: 2px;
-            background: #df8ba0;
-            margin: 18px auto 28px;
-            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 18px auto 0;
+            color: #d96b86;
         }
 
         .linha::before,
         .linha::after {
-            content: "♡";
-            position: absolute;
-            top: -11px;
-            color: #d9365a;
-            font-size: 17px;
-        }
-
-        .linha::before {
-            left: -22px;
-        }
-
-        .linha::after {
-            right: -22px;
+            content: "";
+            width: 70px;
+            height: 1px;
+            background: #dca1ae;
         }
 
         /* TEXTO GRANDE */
 
         .texto-grande {
             max-width: 700px;
-            margin: 0 auto 32px;
+            margin: 0 auto 30px;
 
-            background: rgba(255, 250, 242, 0.92);
+            background: #fffaf4;
 
-            padding: 30px 32px;
+            padding: 28px 32px;
 
             border-radius: 14px;
 
-            border: 1px solid #efd0d7;
+            border: 1px solid #e8c5ce;
 
-            box-shadow:
-                0 12px 30px rgba(80, 30, 45, 0.10),
-                inset 0 0 0 4px rgba(255, 255, 255, 0.45);
+            box-shadow: 0 8px 25px rgba(80, 30, 45, 0.10);
 
             text-align: left;
 
             font-size: 17px;
-            line-height: 1.75;
+            line-height: 1.7;
 
             position: relative;
         }
 
+        /* CANTOS DECORADOS */
+
         .texto-grande::before {
             content: "♡";
             position: absolute;
-            top: 12px;
-            right: 18px;
-            color: rgba(217, 54, 90, 0.25);
-            font-size: 25px;
+            top: 10px;
+            left: 15px;
+            color: #e4a0b0;
+            font-size: 22px;
         }
 
         .texto-grande::after {
             content: "♡";
             position: absolute;
-            bottom: 12px;
-            left: 18px;
-            color: rgba(217, 54, 90, 0.20);
-            font-size: 20px;
+            bottom: 10px;
+            right: 15px;
+            color: #e4a0b0;
+            font-size: 22px;
         }
 
         .texto-grande p {
@@ -193,48 +173,46 @@
             width: 400px;
             height: 255px;
             max-width: 90vw;
+
             position: relative;
             cursor: pointer;
 
-            filter: drop-shadow(0 15px 20px rgba(80, 30, 45, 0.18));
+            filter: drop-shadow(0 10px 15px rgba(80, 30, 45, 0.15));
 
             transition: transform 0.25s ease;
         }
 
         .envelope:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
 
         .envelope-body {
             position: absolute;
             inset: 0;
 
-            background: linear-gradient(
-                145deg,
-                #f59ab0,
-                #ed7895
-            );
+            background: #ed8da5;
 
             border-radius: 8px;
         }
 
-        /* FRENTE */
-
         .envelope-body::before {
             content: "";
+
             position: absolute;
+
             bottom: 0;
             left: 0;
 
             border-left: 200px solid transparent;
             border-right: 200px solid transparent;
-            border-bottom: 140px solid #e97894;
+            border-bottom: 140px solid #e47b96;
         }
 
         /* ABA */
 
         .aba {
             position: absolute;
+
             top: 0;
             left: 0;
 
@@ -243,9 +221,10 @@
 
             border-left: 200px solid transparent;
             border-right: 200px solid transparent;
-            border-top: 140px solid #f8a2b7;
+            border-top: 140px solid #f39db2;
 
             transform-origin: top center;
+
             transition: transform 0.7s ease;
 
             z-index: 5;
@@ -255,17 +234,18 @@
 
         .selo {
             position: absolute;
+
             top: 105px;
             left: 50%;
 
             transform: translateX(-50%);
 
-            width: 64px;
-            height: 64px;
+            width: 65px;
+            height: 65px;
 
             background: #d9365a;
 
-            border: 4px solid #f9b5c4;
+            border: 4px solid #f8c2ce;
 
             border-radius: 50%;
 
@@ -274,11 +254,9 @@
             justify-content: center;
 
             color: white;
-            font-size: 29px;
+            font-size: 28px;
 
             z-index: 10;
-
-            box-shadow: 0 4px 10px rgba(80, 30, 45, 0.15);
 
             transition: opacity 0.4s ease;
         }
@@ -292,7 +270,7 @@
         }
 
         .clique {
-            margin-top: 22px;
+            margin-top: 20px;
             font-size: 17px;
             color: #8f2944;
         }
@@ -305,43 +283,59 @@
             max-width: 700px;
             margin: 0 auto;
 
-            background:
-                linear-gradient(
-                    rgba(255, 250, 242, 0.96),
-                    rgba(255, 250, 242, 0.96)
-                );
+            background: #fffaf2;
 
             padding: 40px 45px;
 
-            border-radius: 8px;
+            border-radius: 10px;
 
-            border: 1px solid #e8c8c9;
+            border: 1px solid #dfbfc5;
 
-            box-shadow:
-                0 18px 40px rgba(80, 30, 45, 0.15),
-                inset 0 0 25px rgba(200, 150, 150, 0.08);
+            box-shadow: 0 12px 35px rgba(80, 30, 45, 0.15);
 
             text-align: left;
 
             position: relative;
         }
 
+        /* BORDA INTERNA */
+
         .carta::before {
-            content: "♡";
+            content: "";
+
             position: absolute;
-            top: 15px;
-            left: 18px;
-            color: rgba(217, 54, 90, 0.22);
-            font-size: 22px;
+
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+
+            border: 1px solid #efd7da;
+
+            border-radius: 6px;
+
+            pointer-events: none;
         }
 
+        /* CORAÇÕES NOS CANTOS */
+
         .carta::after {
-            content: "♡";
+            content: "♡                         ♡";
+
             position: absolute;
-            bottom: 15px;
-            right: 18px;
-            color: rgba(217, 54, 90, 0.22);
-            font-size: 22px;
+
+            top: 20px;
+            left: 25px;
+
+            right: 25px;
+
+            color: #dda0ad;
+
+            font-size: 20px;
+
+            white-space: pre;
+
+            pointer-events: none;
         }
 
         .carta.visivel {
@@ -352,19 +346,19 @@
             text-align: center;
             color: #e34f70;
             font-size: 30px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .carta-titulo {
             text-align: center;
             color: #d9365a;
             font-size: 29px;
-            margin-bottom: 28px;
+            margin-bottom: 25px;
         }
 
         .texto-carta {
             font-size: 17px;
-            line-height: 1.8;
+            line-height: 1.75;
             color: #43242c;
         }
 
@@ -377,34 +371,29 @@
             color: #d9365a;
             font-size: 26px;
             font-weight: bold;
-            margin-top: 28px;
+            margin-top: 25px;
         }
 
         /* BOTÃO */
 
         .fechar {
             display: block;
-            margin: 30px auto 0;
+
+            margin: 28px auto 0;
 
             border: none;
 
-            background: linear-gradient(
-                135deg,
-                #d9365a,
-                #e85b78
-            );
+            background: #d9365a;
 
             color: white;
 
-            padding: 12px 28px;
+            padding: 11px 25px;
 
             border-radius: 25px;
 
             font-size: 15px;
 
             cursor: pointer;
-
-            box-shadow: 0 5px 12px rgba(217, 54, 90, 0.20);
 
             transition: transform 0.2s ease;
         }
@@ -418,7 +407,23 @@
         @media (max-width: 600px) {
 
             .pagina {
-                padding: 25px 12px;
+                padding: 20px 12px;
+            }
+
+            body::before {
+                top: 10px;
+                left: 10px;
+                font-size: 18px;
+            }
+
+            body::after {
+                bottom: 10px;
+                right: 10px;
+                font-size: 18px;
+            }
+
+            .titulo {
+                padding: 20px 10px;
             }
 
             .titulo h1 {
@@ -435,7 +440,7 @@
 
             .texto-grande {
                 font-size: 16px;
-                padding: 24px 21px;
+                padding: 25px 21px;
             }
 
             .envelope {
@@ -458,12 +463,12 @@
             .selo {
                 width: 52px;
                 height: 52px;
-                font-size: 24px;
+                font-size: 23px;
                 top: 85px;
             }
 
             .carta {
-                padding: 30px 22px;
+                padding: 32px 22px;
             }
 
             .carta-titulo {
@@ -472,29 +477,17 @@
 
             .texto-carta {
                 font-size: 16px;
-                line-height: 1.75;
+                line-height: 1.7;
             }
 
             .final {
                 font-size: 23px;
-            }
-
-            .decoracao {
-                font-size: 20px;
             }
         }
     </style>
 </head>
 
 <body>
-
-    <!-- DECORAÇÕES -->
-
-    <div class="decoracao um">♡</div>
-    <div class="decoracao dois">♡</div>
-    <div class="decoracao tres">♡</div>
-    <div class="decoracao quatro">♡</div>
-
 
     <main class="pagina">
 
@@ -512,7 +505,7 @@
                     Tenho uma carta especial para você.
                 </p>
 
-                <div class="linha"></div>
+                <div class="linha">♡</div>
 
             </div>
 
@@ -643,16 +636,26 @@
 
         function abrirCarta() {
 
-            const textoGrande = document.getElementById("textoGrande");
-            const envelopeArea = document.getElementById("envelopeArea");
-            const envelope = document.getElementById("envelope");
-            const carta = document.getElementById("carta");
+            const textoGrande =
+                document.getElementById("textoGrande");
+
+            const envelopeArea =
+                document.getElementById("envelopeArea");
+
+            const envelope =
+                document.getElementById("envelope");
+
+            const carta =
+                document.getElementById("carta");
+
 
             envelope.classList.add("aberto");
 
-            setTimeout(function () {
+
+            setTimeout(function() {
 
                 textoGrande.style.display = "none";
+
                 envelopeArea.style.display = "none";
 
                 carta.classList.add("visivel");
@@ -668,22 +671,33 @@
 
         function fecharCarta() {
 
-            const textoGrande = document.getElementById("textoGrande");
-            const envelopeArea = document.getElementById("envelopeArea");
-            const envelope = document.getElementById("envelope");
-            const carta = document.getElementById("carta");
+            const textoGrande =
+                document.getElementById("textoGrande");
+
+            const envelopeArea =
+                document.getElementById("envelopeArea");
+
+            const envelope =
+                document.getElementById("envelope");
+
+            const carta =
+                document.getElementById("carta");
+
 
             carta.classList.remove("visivel");
 
             textoGrande.style.display = "block";
+
             envelopeArea.style.display = "flex";
 
             envelope.classList.remove("aberto");
+
 
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
+
         }
 
     </script>
