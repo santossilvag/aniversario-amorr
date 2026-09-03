@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,91 +8,129 @@
     <title>Feliz Aniversário, Meu Amor ❤️</title>
 
     <style>
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             min-height: 100vh;
+            background: linear-gradient(135deg, #fff4f6, #ffdfe7);
             font-family: Georgia, "Times New Roman", serif;
-            background: linear-gradient(135deg, #fff1f5, #ffdce6);
-            color: #6d2438;
+            color: #572431;
             overflow-x: hidden;
         }
 
-        /* Fundo */
+        /* CORAÇÕES DE FUNDO */
 
-        .container {
+        .heart-bg {
+            position: fixed;
+            color: #f3a4b5;
+            font-size: 20px;
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .h1 {
+            top: 8%;
+            left: 8%;
+        }
+
+        .h2 {
+            top: 18%;
+            right: 10%;
+        }
+
+        .h3 {
+            bottom: 15%;
+            left: 12%;
+        }
+
+        .h4 {
+            bottom: 20%;
+            right: 8%;
+        }
+
+        /* CONTEÚDO */
+
+        .pagina {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            padding: 55px 20px;
+            justify-content: center;
+            padding: 50px 30px;
+        }
+
+        .conteudo {
+            width: 1200px;
+            max-width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        /* LADO ESQUERDO */
+
+        .lado-esquerdo {
+            text-align: center;
         }
 
         h1 {
-            font-size: 48px;
-            text-align: center;
-            margin-bottom: 8px;
+            font-size: 50px;
+            color: #8f2944;
+            margin-bottom: 5px;
         }
 
-        .amor {
-            color: #e34f70;
+        .meu-amor {
+            font-size: 65px;
+            color: #e24d70;
             font-family: "Brush Script MT", cursive;
-            font-size: 62px;
+            margin-bottom: 15px;
         }
 
         .subtitulo {
             font-size: 19px;
-            margin: 15px 0 45px;
-            text-align: center;
+            margin-bottom: 45px;
         }
 
         /* ENVELOPE */
 
-        .envelope-area {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
         .envelope {
             position: relative;
-            width: 430px;
-            height: 285px;
+            width: 470px;
+            height: 300px;
+            max-width: 100%;
+            margin: auto;
             cursor: pointer;
-            perspective: 1000px;
         }
 
-        .envelope-body {
+        .corpo-envelope {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #f58fa8;
+            inset: 0;
+            background: #f48da7;
             border-radius: 5px;
-            box-shadow: 0 15px 35px rgba(120, 50, 70, 0.20);
-            overflow: hidden;
+            box-shadow: 0 18px 35px rgba(100, 30, 50, 0.20);
         }
 
-        /* Parte da frente do envelope */
+        /* FRENTE DO ENVELOPE */
 
-        .envelope-body::before {
+        .corpo-envelope::before {
             content: "";
             position: absolute;
             bottom: 0;
             left: 0;
 
-            border-left: 215px solid transparent;
-            border-right: 215px solid transparent;
-            border-bottom: 155px solid #ed7895;
+            border-left: 235px solid transparent;
+            border-right: 235px solid transparent;
+            border-bottom: 165px solid #ed7995;
         }
 
-        /* Aba do envelope */
+        /* ABA */
 
-        .flap {
+        .aba {
             position: absolute;
             top: 0;
             left: 0;
@@ -99,25 +138,28 @@
             width: 0;
             height: 0;
 
-            border-left: 215px solid transparent;
-            border-right: 215px solid transparent;
-            border-top: 155px solid #f9a4b8;
+            border-left: 235px solid transparent;
+            border-right: 235px solid transparent;
+            border-top: 165px solid #f9a3b7;
 
             transform-origin: top center;
-            transition: transform 0.8s ease;
+            transition: transform 0.7s ease;
+
             z-index: 5;
         }
 
-        /* Coração */
+        /* SELO */
 
         .selo {
             position: absolute;
-            top: 125px;
+
+            top: 130px;
             left: 50%;
+
             transform: translateX(-50%);
 
-            width: 58px;
-            height: 58px;
+            width: 65px;
+            height: 65px;
 
             background: #d9365a;
             border-radius: 50%;
@@ -127,114 +169,89 @@
             justify-content: center;
 
             color: white;
-            font-size: 30px;
+            font-size: 32px;
 
-            box-shadow: 0 5px 12px rgba(100, 20, 40, 0.25);
+            box-shadow: 0 5px 15px rgba(100, 20, 40, 0.3);
 
             z-index: 10;
+
             transition: 0.5s;
         }
 
-        .envelope:hover .selo {
-            transform: translateX(-50%) scale(1.08);
-        }
+        /* ABRINDO */
 
-        /* Quando abre */
-
-        .envelope.open .flap {
+        .envelope.aberto .aba {
             transform: rotateX(180deg);
         }
 
-        .envelope.open .selo {
+        .envelope.aberto .selo {
             opacity: 0;
             transform: translateX(-50%) scale(0.5);
         }
 
-        .envelope.open {
-            margin-bottom: 40px;
-        }
-
-        /* Texto abaixo */
-
         .clique {
             margin-top: 30px;
             font-size: 18px;
-            animation: pulsar 1.5s infinite;
-        }
-
-        @keyframes pulsar {
-            0%, 100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.55;
-            }
+            color: #8f2944;
         }
 
         /* CARTA */
 
         .carta {
-            width: min(720px, 92%);
-            background: #fffaf0;
-
-            padding: 45px 50px;
-
+            background: #fffaf2;
+            border: 1px solid #efd0d7;
             border-radius: 12px;
 
-            box-shadow:
-                0 15px 40px rgba(100, 40, 60, 0.18);
+            padding: 40px;
 
-            border: 1px solid #f0c9d1;
+            box-shadow: 0 18px 40px rgba(100, 30, 50, 0.15);
 
             opacity: 0;
-            transform: translateY(40px) scale(0.95);
+            visibility: hidden;
 
-            pointer-events: none;
+            transform: translateX(30px);
 
             transition:
-                opacity 0.8s ease,
-                transform 0.8s ease;
-
-            margin-top: 10px;
+                opacity 0.6s ease,
+                transform 0.6s ease,
+                visibility 0.6s;
         }
 
-        .carta.aberta {
+        .carta.mostrar {
             opacity: 1;
-            transform: translateY(0) scale(1);
-            pointer-events: auto;
+            visibility: visible;
+            transform: translateX(0);
         }
 
         .titulo-carta {
             text-align: center;
-            color: #d9365a;
+            color: #c93658;
             font-size: 30px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        .coracao-topo {
+        .coracao {
             text-align: center;
             color: #e34f70;
-            font-size: 25px;
+            font-size: 28px;
             margin-bottom: 20px;
         }
 
         .texto {
-            color: #492832;
-            font-size: 18px;
-            line-height: 1.8;
-            text-align: left;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #43242c;
         }
 
         .texto p {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .final {
             text-align: center;
             color: #d9365a;
-            font-family: "Brush Script MT", cursive;
-            font-size: 38px;
+            font-size: 28px;
+            font-weight: bold;
             margin-top: 25px;
         }
 
@@ -246,94 +263,75 @@
             background: #d9365a;
             color: white;
 
-            padding: 12px 25px;
+            padding: 11px 25px;
             border-radius: 25px;
 
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
-
-            transition: 0.3s;
         }
 
         .fechar:hover {
-            transform: scale(1.05);
-            background: #bd294b;
+            background: #b92b4b;
         }
 
-        /* CORAÇÕES */
-
-        .heart {
-            position: fixed;
-            bottom: -30px;
-
-            color: #e85b79;
-            font-size: 22px;
-
-            animation: subir 4s linear forwards;
-
-            pointer-events: none;
-            z-index: 100;
-        }
-
-        @keyframes subir {
-            from {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-
-            to {
-                transform: translateY(-100vh) rotate(30deg);
-                opacity: 0;
-            }
-        }
 
         /* CELULAR */
 
-        @media (max-width: 600px) {
+        @media (max-width: 850px) {
 
-            .container {
-                padding: 40px 15px;
+            .pagina {
+                padding: 35px 18px;
+            }
+
+            .conteudo {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             h1 {
-                font-size: 34px;
+                font-size: 38px;
             }
 
-            .amor {
-                font-size: 48px;
+            .meu-amor {
+                font-size: 52px;
             }
 
             .subtitulo {
-                font-size: 16px;
-                margin-bottom: 35px;
+                font-size: 17px;
+                margin-bottom: 30px;
             }
 
             .envelope {
-                width: 320px;
+                width: 330px;
                 height: 215px;
             }
 
-            .flap {
-                border-left-width: 160px;
-                border-right-width: 160px;
-                border-top-width: 120px;
-            }
-
-            .envelope-body::before {
-                border-left-width: 160px;
-                border-right-width: 160px;
+            .corpo-envelope::before {
+                border-left-width: 165px;
+                border-right-width: 165px;
                 border-bottom-width: 120px;
             }
 
+            .aba {
+                border-left-width: 165px;
+                border-right-width: 165px;
+                border-top-width: 120px;
+            }
+
             .selo {
-                width: 48px;
-                height: 48px;
-                font-size: 24px;
-                top: 95px;
+                width: 52px;
+                height: 52px;
+                font-size: 25px;
+                top: 92px;
             }
 
             .carta {
-                padding: 30px 25px;
+                padding: 28px 22px;
+                transform: translateY(25px);
+            }
+
+            .carta.mostrar {
+                transform: translateY(0);
             }
 
             .titulo-carta {
@@ -342,185 +340,217 @@
 
             .texto {
                 font-size: 16px;
-                line-height: 1.7;
+                line-height: 1.65;
             }
 
             .final {
-                font-size: 32px;
+                font-size: 24px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-<div class="container">
+    <!-- CORAÇÕES DISCRETOS -->
 
-    <h1>
-        Feliz Aniversário,
-        <br>
-        <span class="amor">Meu Amor ❤️</span>
-    </h1>
-
-    <p class="subtitulo">
-        Tenho uma carta especial para você... 💕
-    </p>
+    <div class="heart-bg h1">♥</div>
+    <div class="heart-bg h2">♡</div>
+    <div class="heart-bg h3">♥</div>
+    <div class="heart-bg h4">♡</div>
 
 
-    <!-- ENVELOPE -->
+    <main class="pagina">
 
-    <div class="envelope-area">
+        <div class="conteudo">
 
-        <div class="envelope" id="envelope">
 
-            <div class="envelope-body"></div>
+            <!-- LADO ESQUERDO -->
 
-            <div class="flap"></div>
+            <section class="lado-esquerdo">
 
-            <div class="selo">
-                ❤️
-            </div>
+                <h1>
+                    Feliz Aniversário,
+                </h1>
+
+                <div class="meu-amor">
+                    Meu Amor ❤️
+                </div>
+
+                <p class="subtitulo">
+                    Tenho uma carta especial para você. ❤️
+                </p>
+
+
+                <!-- ENVELOPE -->
+
+                <div
+                    class="envelope"
+                    id="envelope"
+                    onclick="abrirCarta()"
+                >
+
+                    <div class="corpo-envelope"></div>
+
+                    <div class="aba"></div>
+
+                    <div class="selo">
+                        ❤️
+                    </div>
+
+                </div>
+
+
+                <p class="clique" id="clique">
+                    💌 Clique na carta para abrir
+                </p>
+
+            </section>
+
+
+
+            <!-- CARTA -->
+
+            <section
+                class="carta"
+                id="carta"
+            >
+
+                <div class="coracao">
+                    ♡
+                </div>
+
+                <h2 class="titulo-carta">
+                    Para você, meu amor ❤️
+                </h2>
+
+
+                <div class="texto">
+
+                    <p>
+                        Eu não sei como agradecer por todos esses meses, por ter uma pessoa tão incrível do meu lado, que me surpreende cada vez mais. A cada momento que eu passo com você eu me apaixono cada vez mais, a cada vez que eu te vejo eu me apaixono cada vez mais, a cada vez que eu falo com você, eu me apaixono cada vez mais.
+                    </p>
+
+                    <p>
+                        Você é a mulher perfeita que eu nunca pude sonhar que poderia ter, que me trata igual um bebê, que sempre está do meu lado e me ajudando sempre, que está disposta a fazer tudo por mim, nunca brigou comigo nenhuma vez, sempre me deixa animado quando eu estou triste ou em um dia difícil, Na verdade, não tem dia difícil quando eu estou com você, porque é impossível você ilumina meu dia, e ilumina minha vida como NINGUÉM nunca iluminou antes. Eu não vivo sem você meu amor, não vivo Sem vc meu mundo desaba, e se torna apenas cinzas, um completo vazio , Mas quando estou contigo, tudo fica melhor, TUDO. Meus momentos felizes, só existem com você. Quando eu vou na rua, jogo, ou saio pra algum lugar, eu sempre fico triste, porque eu não tenho você comigo e lembro de todos os nossos problemas que nós passamos, e que estamos passando, cada dia que passa, O dia mais importante da sua vida, o SEU DIA.
+                    </p>
+
+                    <p>
+                        sua felicidade me torna feliz Me deixa com um sorriso no rosto E te ver triste me deixa acabado Com um vazio enorme, porque eu quero ver minha princesa feliz né, com esse sorriso lindo de uma mulher muito especial para mim.
+                    </p>
+
+                    <p>
+                        Eu tenho muita sorte de ter uma garota tão especial comigo, eu realmente tenho muita sorte, uma garota, que me dá um valor além dos meus limites, que me apoia tanto, E faz de mim o homem mais feliz do universo.
+                    </p>
+
+                    <p>
+                        Eu sou muito grato por ter você a mulher que mudou minha vida por completo, que fez desse ano, ser o melhor da minha vida.
+                    </p>
+
+                    <p>
+                        Eu não sei como consegui arranjar uma mulher tão perfeita.
+                    </p>
+
+                    <p>
+                        Eu lembro dos nossos dias como se fossem ontem, nossos momentos fofos.
+                    </p>
+
+                    <p>
+                        Lembro quando nois ficamos de mãos dadas pela primeira vez meu mundo paralisou, minha cabeça explodiu, meu corpo tremeu mais que um terremoto, tive dúvidas, e medo. Um conjunto de emoções, todas de uma vez.
+                    </p>
+
+                    <p>
+                        antes de eu te pedir em namoro fiquei pensando se tudo isso daria certo, se tudo ficaria bem, eu tava cheio de dúvidas, mas mesmo assim eu dei um grande passo e tomei a decisão certa, comecei a conversar com você até agente se aproximar mais e começarmos a namorar.
+                    </p>
+
+                    <p>
+                        Giovana eu quero ter uma vida com você, ter filhos com você, nossa própria casa. Uma família. Eu quero você comigo pelo resto da minha vida, quero viver pra sempre do seu lado, e nunca mais sair.
+                    </p>
+
+                    <p>
+                        Então, eu escolho VOCÊ, como a mulher que eu vou passar o resto da minha vida do seu lado, sempre te apoiar independente de tudo, a mulher que eu vou me casar. EU TE AMO MEU AMOR
+                    </p>
+
+                </div>
+
+
+                <div class="final">
+                    FELIZ ANIVERSÁRIO ❤️
+                </div>
+
+
+                <button
+                    class="fechar"
+                    onclick="fecharCarta()"
+                >
+                    Fechar carta ×
+                </button>
+
+            </section>
 
         </div>
 
-        <p class="clique" id="clique">
-            💌 Clique na carta para abrir
-        </p>
-
-    </div>
+    </main>
 
 
-    <!-- CARTA -->
 
-    <div class="carta" id="carta">
+    <script>
 
-        <div class="coracao-topo">
-            ♡
-        </div>
+        function abrirCarta() {
 
-        <h2 class="titulo-carta">
-            Para você, meu amor ❤️
-        </h2>
+            const envelope =
+                document.getElementById("envelope");
 
-        <div class="texto">
+            const carta =
+                document.getElementById("carta");
 
-            <p>
-                Feliz aniversário, meu amor! Hoje meu coração transborda de gratidão por celebrar a existência da pessoa mais incrível que eu já conheci em toda a minha vida. Neste dia tão especial, quero que você saiba o quanto você significa para mim e como sou grato a Deus por ter você em minha vida.
-            </p>
-
-            <p>
-                Você é meu porto seguro, a pessoa que transforma meus dias e dá sentido a eles. Você é mais do que eu um dia sonhei obrigado por fazer tudo por mim, alguém que estivesse comigo em todos os momentos, me entendesse, me fizesse sorrir pelos motivos mais bobos, me respeitasse, fizesse questão de mostrar para todos que é completamente apaixonada por mim e, acima de tudo, me amasse independente de qualquer coisa.
-            </p>
-
-            <p>
-                Desejo que todos os seus sonhos se realizem e que a vida te retribua em dobro todo o amor e a luz que você espalha. Quero estar ao seu lado em cada passo, segurando sua mão, rindo com você, enxugando suas lágrimas quando for preciso e, acima de tudo, amando você com toda a minha alma.
-            </p>
-
-            <p>
-                Que a gente continue escrevendo essa história linda juntos, lado a lado, porque meu maior desejo é te ver feliz e realizado. ❤️
-            </p>
-
-        </div>
-
-        <div class="final">
-            Feliz Aniversário! ❤️
-        </div>
-
-        <button class="fechar" id="fechar">
-            Fechar carta ×
-        </button>
-
-    </div>
-
-</div>
+            const clique =
+                document.getElementById("clique");
 
 
-<script>
+            envelope.classList.add("aberto");
 
-    const envelope = document.getElementById("envelope");
-    const carta = document.getElementById("carta");
-    const fechar = document.getElementById("fechar");
-    const clique = document.getElementById("clique");
+            clique.style.opacity = "0";
 
-
-    // ABRIR CARTA
-
-    envelope.addEventListener("click", function() {
-
-        envelope.classList.add("open");
-
-        clique.style.opacity = "0";
-
-        setTimeout(function() {
-
-            carta.classList.add("aberta");
-
-            carta.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
-            criarCoracoes();
-
-        }, 600);
-
-    });
-
-
-    // FECHAR CARTA
-
-    fechar.addEventListener("click", function() {
-
-        carta.classList.remove("aberta");
-
-        setTimeout(function() {
-
-            envelope.classList.remove("open");
-
-            clique.style.opacity = "1";
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }, 500);
-
-    });
-
-
-    // CORAÇÕES
-
-    function criarCoracoes() {
-
-        for (let i = 0; i < 18; i++) {
-
-            const heart = document.createElement("div");
-
-            heart.classList.add("heart");
-
-            heart.innerHTML = "♥";
-
-            heart.style.left =
-                Math.random() * 100 + "vw";
-
-            heart.style.fontSize =
-                (15 + Math.random() * 20) + "px";
-
-            heart.style.animationDuration =
-                (3 + Math.random() * 2) + "s";
-
-            document.body.appendChild(heart);
 
             setTimeout(function() {
-                heart.remove();
-            }, 5000);
+
+                carta.classList.add("mostrar");
+
+            }, 500);
 
         }
 
-    }
 
-</script>
+        function fecharCarta() {
+
+            const envelope =
+                document.getElementById("envelope");
+
+            const carta =
+                document.getElementById("carta");
+
+            const clique =
+                document.getElementById("clique");
+
+
+            carta.classList.remove("mostrar");
+
+
+            setTimeout(function() {
+
+                envelope.classList.remove("aberto");
+
+                clique.style.opacity = "1";
+
+            }, 500);
+
+        }
+
+    </script>
 
 </body>
+
 </html>
