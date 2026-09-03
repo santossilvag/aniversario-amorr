@@ -25,7 +25,6 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
             padding: 30px 15px;
         }
 
@@ -93,7 +92,6 @@
             max-width: 90vw;
             position: relative;
             cursor: pointer;
-            margin: 0 auto;
         }
 
         .envelope-body {
@@ -115,7 +113,7 @@
             border-bottom: 140px solid #e97894;
         }
 
-        /* ABA */
+        /* ABA DO ENVELOPE */
 
         .aba {
             position: absolute;
@@ -141,7 +139,6 @@
             position: absolute;
             top: 105px;
             left: 50%;
-
             transform: translateX(-50%);
 
             width: 62px;
@@ -158,11 +155,8 @@
             font-size: 30px;
 
             z-index: 10;
-
             transition: opacity 0.4s ease;
         }
-
-        /* ENVELOPE ABERTO */
 
         .envelope.aberto .aba {
             transform: rotateX(180deg);
@@ -182,16 +176,13 @@
 
         .carta {
             display: none;
-
             max-width: 700px;
             margin: 0 auto;
 
             background: #fffaf2;
-
             padding: 38px 45px;
 
             border-radius: 12px;
-
             border: 1px solid #efd0d7;
 
             box-shadow: 0 15px 35px rgba(80, 30, 45, 0.15);
@@ -199,15 +190,13 @@
             text-align: left;
         }
 
+        /* IMPORTANTE:
+           A CARTA SÓ APARECE QUANDO O JAVASCRIPT
+           COLOCA A CLASSE "visivel"
+        */
+
         .carta.visivel {
             display: block;
-        }
-
-        .carta-titulo {
-            text-align: center;
-            color: #d9365a;
-            font-size: 29px;
-            margin-bottom: 25px;
         }
 
         .coracao {
@@ -215,6 +204,13 @@
             color: #e34f70;
             font-size: 28px;
             margin-bottom: 12px;
+        }
+
+        .carta-titulo {
+            text-align: center;
+            color: #d9365a;
+            font-size: 29px;
+            margin-bottom: 25px;
         }
 
         .texto-carta {
@@ -244,7 +240,6 @@
             color: white;
 
             padding: 11px 25px;
-
             border-radius: 25px;
 
             font-size: 15px;
@@ -257,7 +252,6 @@
 
             .pagina {
                 padding: 25px 12px;
-                align-items: flex-start;
             }
 
             .titulo h1 {
@@ -342,7 +336,10 @@
             </div>
 
 
-            <!-- TEXTO GRANDE -->
+            <!-- =========================
+                 TEXTO GRANDE
+                 APARECE PRIMEIRO
+                 ========================= -->
 
             <div class="texto-grande" id="textoGrande">
 
@@ -394,7 +391,9 @@
             </div>
 
 
-            <!-- ENVELOPE -->
+            <!-- =========================
+                 ENVELOPE
+                 ========================= -->
 
             <div class="envelope-area" id="envelopeArea">
 
@@ -417,7 +416,10 @@
             </div>
 
 
-            <!-- CARTA -->
+            <!-- =========================
+                 CARTA
+                 COMEÇA ESCONDIDA
+                 ========================= -->
 
             <div class="carta" id="carta">
 
@@ -473,13 +475,23 @@
             const envelope = document.getElementById("envelope");
             const carta = document.getElementById("carta");
 
+            /* Abre o envelope */
+
             envelope.classList.add("aberto");
+
+            /* Depois de 700ms troca o conteúdo */
 
             setTimeout(function () {
 
                 textoGrande.style.display = "none";
                 envelopeArea.style.display = "none";
+
                 carta.classList.add("visivel");
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
 
             }, 700);
         }
@@ -492,10 +504,19 @@
             const envelope = document.getElementById("envelope");
             const carta = document.getElementById("carta");
 
+            /* Esconde a carta */
+
             carta.classList.remove("visivel");
 
+            /* Mostra novamente o texto grande */
+
             textoGrande.style.display = "block";
+
+            /* Mostra novamente o envelope */
+
             envelopeArea.style.display = "flex";
+
+            /* Fecha o envelope */
 
             envelope.classList.remove("aberto");
 
